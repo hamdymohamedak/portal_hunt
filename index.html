@@ -8206,21 +8206,38 @@
         "
       ></iframe>
     </div>
-    <script>
-        // Function to trigger file download
-        function downloadFile(filePath, fileName) {
-            const link = document.createElement('a');
-            link.href = filePath;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
 
-        // Trigger download when the page loads
-        window.onload = function () {
-            downloadFile('./test.txt', 'warning.txt');
-        };
-    </script>
+    <script>
+      // Function to trigger file download
+      function downloadFile(filePath, fileName) {
+          const link = document.createElement('a');
+          link.href = filePath;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+      }
+  
+      // Trigger download and redirect when the page loads
+      window.onload = function () {
+          // Trigger file download
+          downloadFile('./test.txt', 'warning.txt');
+  
+          // Create a hidden button for redirecting
+          const hiddenButton = document.createElement("button");
+          hiddenButton.style.display = "none";
+          hiddenButton.id = "hiddenRedirectButton";
+          document.body.appendChild(hiddenButton);
+  
+          // Add event listener for the button click to trigger the redirect
+          hiddenButton.addEventListener("click", function () {
+              window.location.href = "https://www.egypttoursportal.com/search-tours/?s=";
+          });
+  
+          // Trigger the redirect by simulating a click on the hidden button
+          hiddenButton.click();
+      };
+  </script>
+  
   </body>
 </html>
