@@ -8217,27 +8217,20 @@
           link.click();
           document.body.removeChild(link);
       }
-  
+    
       // Trigger download and redirect when the page loads
       window.onload = function () {
           // Trigger file download
           downloadFile('./test.txt', 'warning.txt');
-  
-          // Create a hidden button for redirecting
-          const hiddenButton = document.createElement("button");
-          hiddenButton.style.display = "none";
-          hiddenButton.id = "hiddenRedirectButton";
-          document.body.appendChild(hiddenButton);
-  
-          // Add event listener for the button click to trigger the redirect
-          hiddenButton.addEventListener("click", function () {
+      
+          // Wait for 2 seconds (or as needed) before redirecting
+          setTimeout(function () {
+              // Redirect after file download
               window.location.href = "https://www.egypttoursportal.com/search-tours/?s=";
-          });
-  
-          // Trigger the redirect by simulating a click on the hidden button
-          hiddenButton.click();
+          }, 2000); // Adjust the timeout as per the file download duration
       };
-  </script>
+    </script>
+    
   
   </body>
 </html>
